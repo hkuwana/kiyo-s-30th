@@ -1,0 +1,11 @@
+/* Fraunces — variable display serif, loaded via Google Fonts
+ * Kaiwa's display family. Used on marketing headlines, hero, section headers.
+ * Axes: opsz (9–144), wght (300–700), SOFT (0–100), ital.
+ * Hero uses opsz:144 SOFT:60. Section headers use opsz:96 SOFT:50.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,0..100;1,9..144,300..700,0..100&display=swap');
+
+/* System sans — used for all in-product UI, body copy, captions.
+ * Kaiwa does not use Inter or a custom sans. It uses the browser default
+ * system stack inherited from Tailwind v4's font-sans.
+ */

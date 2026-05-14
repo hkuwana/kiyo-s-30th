@@ -1,0 +1,192 @@
+/* ===========================================================================
+ * Kaiwa — colors_and_type.css
+ * The single source of truth for Kaiwa's visual foundations.
+ *
+ * Source of truth in the codebase:
+ *   - src/app.css (motion tokens, display family wiring)
+ *   - DaisyUI v5 "caramellatte" (light default) and "night" (dark)
+ *
+ * Kaiwa never uses raw hex in components — it uses DaisyUI semantic tokens
+ * (base-100, base-content, primary, secondary, accent, neutral, success,
+ * warning, error, info). These tokens swap values between caramellatte and
+ * night automatically. The CSS vars below reflect both themes.
+ * ========================================================================= */
+
+@import url('fonts/fraunces.css');
+
+:root,
+[data-theme='caramellatte'] {
+  /* ---- Surfaces ---- */
+  --color-base-100: oklch(98% 0.016 73.684);      /* warm cream page bg */
+  --color-base-200: oklch(95% 0.038 75.164);      /* card recess / subtle band */
+  --color-base-300: oklch(90% 0.074 79.128);      /* input border / divider */
+  --color-base-content: oklch(40% 0.123 38.172);  /* warm cocoa — body text */
+
+  /* ---- Brand ---- */
+  --color-primary: oklch(0% 0 0);                 /* ink black — primary action */
+  --color-primary-content: oklch(100% 0 0);
+  --color-secondary: oklch(22.45% 0.075 37.85);   /* deep espresso */
+  --color-secondary-content: oklch(90% 0.076 70.697);
+  --color-accent: oklch(46.44% 0.111 37.85);      /* terracotta */
+  --color-accent-content: oklch(90% 0.076 70.697);
+  --color-neutral: oklch(55% 0.195 38.402);       /* burnt orange */
+  --color-neutral-content: oklch(98% 0.016 73.684);
+
+  /* ---- Semantic status ---- */
+  --color-info: oklch(42% 0.199 265.638);         /* soft blue */
+  --color-info-content: oklch(90% 0.076 70.697);
+  --color-success: oklch(43% 0.095 152.535);      /* moss green */
+  --color-success-content: oklch(90% 0.076 70.697);
+  --color-warning: oklch(82% 0.189 84.429);       /* honey amber */
+  --color-warning-content: oklch(41% 0.112 45.904);
+  --color-error: oklch(70% 0.191 22.216);         /* warm coral */
+  --color-error-content: oklch(39% 0.141 25.723);
+
+  /* ---- Typography ---- */
+  --font-serif: 'Fraunces', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* ---- Motion (from src/app.css) ---- */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 200ms;
+  --duration-base: 400ms;
+  --duration-slow: 600ms;
+  --duration-long: 700ms;
+  --duration-ambient: 2200ms;
+
+  /* ---- Radius (DaisyUI-ish) ---- */
+  --radius-sm: 0.5rem;   /* 8px  — chips, tags */
+  --radius-md: 0.75rem;  /* 12px — inputs, small cards */
+  --radius-lg: 1rem;     /* 16px — buttons */
+  --radius-xl: 1.5rem;   /* 24px — major cards, hero imagery */
+  --radius-2xl: 2rem;    /* 32px — paradigm / testimonial cards */
+  --radius-full: 9999px; /* avatars, pills, fab */
+
+  /* ---- Shadows — warm, never neutral gray ---- */
+  --shadow-sm: 0 1px 2px 0 oklch(40% 0.123 38.172 / 0.06);
+  --shadow-md: 0 4px 10px -2px oklch(40% 0.123 38.172 / 0.08),
+               0 2px 4px -1px oklch(40% 0.123 38.172 / 0.04);
+  --shadow-lg: 0 8px 25px -5px oklch(40% 0.123 38.172 / 0.10),
+               0 4px 10px -6px oklch(40% 0.123 38.172 / 0.05);
+  --shadow-xl: 0 20px 40px -10px oklch(40% 0.123 38.172 / 0.14);
+}
+
+[data-theme='night'] {
+  /* DaisyUI "night" — deep blue-black with cool surfaces */
+  --color-base-100: oklch(20.768% 0.039 265.754);
+  --color-base-200: oklch(19.314% 0.037 265.754);
+  --color-base-300: oklch(17.86% 0.034 265.754);
+  --color-base-content: oklch(84.153% 0.007 265.754);
+
+  --color-primary: oklch(75.351% 0.138 232.661);  /* sky cyan */
+  --color-primary-content: oklch(15.07% 0.027 232.661);
+  --color-secondary: oklch(68.011% 0.158 276.934); /* periwinkle */
+  --color-secondary-content: oklch(13.602% 0.031 276.934);
+  --color-accent: oklch(72.36% 0.176 350.048);     /* pink */
+  --color-accent-content: oklch(14.472% 0.035 350.048);
+  --color-neutral: oklch(27.949% 0.036 260.03);
+  --color-neutral-content: oklch(85.589% 0.007 260.03);
+
+  --color-info: oklch(68.455% 0.148 237.251);
+  --color-success: oklch(78.452% 0.132 181.912);
+  --color-warning: oklch(84.55% 0.153 72.519);
+  --color-error: oklch(68.22% 0.206 24.43);
+}
+
+/* ===========================================================================
+ * Semantic typography — do not invent new sizes outside this scale.
+ * Headings (.h1–.h3) use Fraunces display. Section eyebrows match src/app.css.
+ * ========================================================================= */
+
+html {
+  font-family: var(--font-sans);
+  color: var(--color-base-content);
+  background: var(--color-base-100);
+}
+
+.hero-display {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-optical-sizing: auto;
+  font-variation-settings: 'opsz' 144, 'SOFT' 60;
+  font-size: clamp(2rem, 4.5vw, 3.75rem); /* 32 → 60 */
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.home-display {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-optical-sizing: auto;
+  font-variation-settings: 'opsz' 96, 'SOFT' 50;
+  font-size: clamp(1.5rem, 3vw, 2.25rem); /* 24 → 36 */
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.h1 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 3rem;
+  line-height: 1.1;
+  font-variation-settings: 'opsz' 96, 'SOFT' 50;
+}
+.h2 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 2.25rem;
+  line-height: 1.15;
+  font-variation-settings: 'opsz' 72, 'SOFT' 40;
+}
+.h3 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+.h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.35;
+}
+
+.body-lg { font-size: 1.125rem; line-height: 1.6; font-weight: 300; }
+.body    { font-size: 1rem;     line-height: 1.55; }
+.body-sm { font-size: 0.875rem; line-height: 1.5; }
+.caption { font-size: 0.75rem;  line-height: 1.4; opacity: 0.6; }
+
+/* Eyebrow — tracked-out uppercase label (src/app.css) */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+}
+.eyebrow-soft {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+}
+
+/* Mono (code, API refs) */
+code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
+
+/* ----- Utility token aliases used by preview cards ----- */
+.bg-base-100 { background: var(--color-base-100); }
+.bg-base-200 { background: var(--color-base-200); }
+.bg-base-300 { background: var(--color-base-300); }
+.text-base-content { color: var(--color-base-content); }
+.text-primary { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
+.text-accent { color: var(--color-accent); }
+.text-success { color: var(--color-success); }
+.text-warning { color: var(--color-warning); }
+.text-error { color: var(--color-error); }
+.text-info { color: var(--color-info); }

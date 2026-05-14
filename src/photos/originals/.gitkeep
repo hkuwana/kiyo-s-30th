@@ -1,0 +1,2 @@
+# Drop your original photos in this folder, then run `npm run optimize-photos`.
+# Files in this folder are NOT committed — only the compressed copies in `../optimized/` are.

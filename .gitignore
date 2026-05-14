@@ -1,0 +1,18 @@
+# dependencies
+node_modules/
+
+# macOS
+.DS_Store
+
+# editor
+.vscode/
+.idea/
+
+# original (uncompressed) photos — these stay on your machine, never committed.
+# Only the compressed webp/jpg files in src/photos/optimized/ are checked in.
+src/photos/originals/*
+!src/photos/originals/.gitkeep
+
+# logs
+npm-debug.log*
+yarn-error.log*
