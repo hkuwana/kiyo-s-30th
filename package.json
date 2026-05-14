@@ -1,0 +1,20 @@
+{
+  "name": "kiyo-30",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A scrapbook site for Kiyomasa Kuwana's 30th birthday — May 20, 2026.",
+  "scripts": {
+    "start": "serve --no-clipboard --listen 3000 .",
+    "photos": "node scripts/optimize-photos.js",
+    "photos:force": "node scripts/optimize-photos.js --force",
+    "photos:verify": "node scripts/verify-photos.js",
+    "optimize-photos": "npm run photos"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4",
+    "sharp": "^0.33.5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
