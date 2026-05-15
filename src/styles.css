@@ -576,25 +576,28 @@ input, textarea { cursor: text; }
 }
 
 /* Polaroid spans (some bigger, some smaller, for scrapbook rhythm) */
-.polaroid.size-sm  { grid-column: span 3; }
-.polaroid.size-md  { grid-column: span 4; }
-.polaroid.size-lg  { grid-column: span 5; }
+.polaroid.size-sm   { grid-column: span 3; }
+.polaroid.size-md   { grid-column: span 4; }
+.polaroid.size-lg   { grid-column: span 5; }
 .polaroid.size-tall { grid-column: span 3; }
 .polaroid.size-tall .photo { aspect-ratio: 3 / 4; }
 .polaroid.size-wide { grid-column: span 6; }
 .polaroid.size-wide .photo { aspect-ratio: 4 / 3; }
+.polaroid.size-full { grid-column: span 12; }
+.polaroid.size-full .photo { aspect-ratio: 4 / 3; }
 
 @media (max-width: 900px) {
-  .polaroid.size-sm  { grid-column: span 3; }
-  .polaroid.size-md  { grid-column: span 3; }
-  .polaroid.size-lg  { grid-column: span 6; }
+  .polaroid.size-sm   { grid-column: span 3; }
+  .polaroid.size-md   { grid-column: span 3; }
+  .polaroid.size-lg   { grid-column: span 6; }
   .polaroid.size-tall { grid-column: span 3; }
   .polaroid.size-wide { grid-column: span 6; }
+  .polaroid.size-full { grid-column: span 6; }
 }
 @media (max-width: 560px) {
   .polaroid,
   .polaroid.size-sm, .polaroid.size-md, .polaroid.size-lg,
-  .polaroid.size-tall, .polaroid.size-wide { grid-column: span 2; }
+  .polaroid.size-tall, .polaroid.size-wide, .polaroid.size-full { grid-column: span 2; }
 }
 
 /* Sharpie & decoration overlays */
@@ -764,8 +767,20 @@ input, textarea { cursor: text; }
   transform: scale(0.94) rotate(-1deg);
   transition: transform 480ms var(--ease-out-expo);
   position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
 }
+.message-card.has-photo { width: min(640px, 96vw); padding-top: 0; }
 .modal-backdrop.open .message-card { transform: scale(1) rotate(-0.6deg); }
+.modal-photo {
+  width: calc(100% + 4rem);
+  margin: 0 -2rem 1.75rem;
+  aspect-ratio: 3 / 2;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 4px 4px 0 0;
+}
 .message-card .from {
   font-family: var(--font-typewriter);
   font-size: 0.7rem;

@@ -33,6 +33,7 @@ window.BIRTHDAY_DATA = {
   // Replace this filename with whichever optimized photo you want as the final image.
   endingImage: 'src/photos/optimized/patagonia-2024.webp',
   endingCaption: 'Gotta finish dinner before midnight.',
+  endingDate: 'DEC 31 · 2022',
 
   // ===========================================================================
   // CHAPTERS
@@ -78,7 +79,7 @@ window.BIRTHDAY_DATA = {
           size: 'size-lg', rot: 2,
           caption: 'Sakura under the Den-en-toshi line.',
           date: 'APR · 1998',
-          deco: { scribbleHeart: 'tr', arrowNote: { to: 'br', text: 'fell into the koi pond 30 seconds after' } }
+          deco: { scribbleHeart: 'tr' }
         },
         {
           image: 'src/photos/optimized/1997-fall-tokyo-0020-a.webp',
@@ -106,20 +107,9 @@ window.BIRTHDAY_DATA = {
           deco: { scribbleStar: 'tl' }
         },
         {
-          image: 'src/photos/optimized/2000-spring-tokyo-alyssa-home-0069-a.webp',
-          size: 'size-wide', rot: 1,
-          caption: 'Rainy walk home from yochien.',
-          date: '初夏 · 2001',
-          friend: 'Hiro · ヒロ',
-          message: [
-            '[ヒロからのメッセージをここに]'
-          ],
-          signoff: 'ヒロ'
-        },
-        {
           image: 'src/photos/optimized/2001-may-kuwana-0024-a.webp',
-          size: 'size-tall', rot: -3,
-          caption: 'Narita, the day we flew to JFK.',
+          size: 'size-lg', rot: -1,
+          caption: '4 generations in 1 photo!',
           date: 'AUG · 2001',
           deco: { sharpieNote: { corner: 'tl', text: 'you packed 4 books. no toys.' } }
         }
@@ -241,7 +231,7 @@ window.BIRTHDAY_DATA = {
           signoff: 'J.'
         },
         {
-          image: 'src/photos/optimized/kiyo-hitdeki-brown.jpg',
+          image: 'src/photos/optimized/kiyo-hitdeki-brown.webp',
           size: 'size-wide', rot: 1,
           caption: 'Kiyo introduces Brown to Hit-deki.',
           date: 'SPRING · 2019',
@@ -250,8 +240,8 @@ window.BIRTHDAY_DATA = {
         {
           image: 'src/photos/optimized/dsc-2821.webp',
           size: 'size-sm', rot: -3,
-          caption: 'Lamont Hall library.',
-          date: 'SPRING · 2015',
+          caption: 'Made it to Cum Laude!',
+          date: 'MAY · 2015',
           friend: 'Mr. Lamb',
           message: [
             "[Mr. Lamb's message here]"
@@ -260,14 +250,14 @@ window.BIRTHDAY_DATA = {
         },
         {
           image: 'src/photos/optimized/img-0680.webp',
-          size: 'size-lg', rot: -3,
-          caption: 'Move-in day, Keeney Quad.',
+          size: 'size-md', rot: -3,
+          caption: 'One week in Thailand.',
           date: 'SEPT · 2016',
-          friend: 'Priya',
+          friend: 'ママ',
           message: [
-            "[Priya's message here]"
+            'タイ🇹🇭での家族旅行✈️Kum Banにお世話になってゆっくりしたね'
           ],
-          signoff: 'Priya'
+          signoff: 'ママ'
         },
         {
           image: 'src/photos/optimized/img-1018.webp',
@@ -278,7 +268,7 @@ window.BIRTHDAY_DATA = {
         },
         {
           image: 'src/photos/optimized/img-1178.webp',
-          size: 'size-lg', rot: -2,
+          size: 'size-md', rot: 1,
           caption: 'Back in Tokyo with the Brown gang.',
           date: 'JUNE · 2018',
           friend: 'James',
@@ -336,7 +326,7 @@ window.BIRTHDAY_DATA = {
           signoff: '青木'
         },
         {
-          image: 'src/photos/optimized/upenn-masters-2022.jpg',
+          image: 'src/photos/optimized/upenn-masters-2022.webp',
           size: 'size-md', rot: -2,
           caption: "Penn master's. May 2022.",
           date: 'MAY · 2022',
@@ -403,7 +393,7 @@ window.BIRTHDAY_DATA = {
         },
         {
           image: 'src/photos/optimized/img-8732-lauren.webp',
-          size: 'size-md', rot: -3,
+          size: 'size-md', rot: -1,
           caption: 'Opening Day +2. Dodgers vs Nationals.',
           date: 'APR · 2025',
           friend: 'Lolo',
@@ -423,17 +413,21 @@ window.BIRTHDAY_DATA = {
   // BUBBLES · quotes that float up while scrolling
   // ===========================================================================
   bubbles: [
-    { text: 'Always the first one to text.', who: 'Hiro' },
-    { text: 'おめでとう、ねえ。母さん、本当にうれしい。', who: '母' },
-    { text: 'You\'re the reason I went into teaching.', who: 'Sam' },
-    { text: 'He has my coffee order memorized.', who: 'a friend' },
-    { text: 'The kindest, most stubborn person I know.', who: 'Lauren' },
-    { text: 'Came when it mattered. Said nothing. Sat next to me.', who: 'James' },
-    { text: 'Mr. Kuwana said my essay was good and I cried in the bathroom.', who: 'student, anon' },
-    { text: 'Thirty years of being too good for this world.', who: 'Sam' },
-    { text: 'Your laugh, in any room, makes the room better.', who: 'Lauren' },
-    { text: 'お兄ちゃん、おめでとう。', who: 'Arisa · 亜里沙' },
-    { text: 'I have never won an argument with him. He just keeps being nice.', who: 'Marcus' }
+    { text: 'Filler filler filler!', who: 'ママ' },
+    { text: 'Filler filler filler!', who: 'パパ' },
+    { text: 'Filler filler filler!', who: 'Rie Obasan' },
+    { text: 'Filler filler filler!', who: 'Yuhka / Chako' },
+    { text: 'Filler filler filler!', who: 'Eiki / Jennifer' },
+    { text: 'Filler filler filler!', who: 'Conrad' },
+    { text: 'Filler filler filler!', who: 'Nico' },
+    { text: 'ahhhhh love you dogmaus !!', who: 'Lolo' },
+    { text: 'Filler filler filler!', who: 'Nathan' },
+    { text: 'Awww domes domes.', who: 'Francis' },
+    { text: 'Filler filler filler!', who: 'Lloyd' },
+    { text: 'Filler filler filler!', who: 'Connie' },
+    { text: 'Filler filler filler!', who: 'Belinda' },
+    { text: 'Garrison bonus activated.', who: 'Uncle Hairo' },
+    { text: 'Filler filler filler!', who: 'Auntie Alyssa' },
   ],
 
   // ===========================================================================
@@ -442,8 +436,8 @@ window.BIRTHDAY_DATA = {
   guestbook: [
     'ママ',
     'パパ',
-    'Tokyo Jiji and Baba',
-    'California Jiji and Baba',
+    'Tokyo Jiji and Baba (in spirit)',
+    'California Jiji and Baba (in spirit)',
     'Rie Obasan',
     'Yuhka / Chako',
     'Eiki / Jennifer',
@@ -457,8 +451,6 @@ window.BIRTHDAY_DATA = {
     'Belinda',
     'Uncle Hairo',
     'Auntie Alyssa',
-    'KKR Team',
-    'Jiji and Baba in spirit'
   ],
 
   // ===========================================================================
