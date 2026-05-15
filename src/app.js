@@ -6,6 +6,8 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
+  let startAmbientAudio = null;
+
   // -------- 1. TYPEWRITER intro ----------------------------------------------
   function typewriter(el, text, speed = 95) {
     return new Promise((resolve) => {
@@ -74,25 +76,27 @@
 
     const candles = $$('.candle', stage);
     const count = candles.length;
-    const totalMs = 4000;
+    // Quick wind-sweep: candles ignite left-to-right in ~900ms total.
+    const totalMs = 900;
     const stepMs = totalMs / count;
+    const startDelay = 220;
     const counter = $('#candle-count');
 
     candles.forEach((c, i) => {
       setTimeout(() => {
         c.classList.add('lit');
         counter.textContent = String(i + 1).padStart(2, '0');
-      }, 500 + stepMs * i);
+      }, startDelay + stepMs * i);
     });
 
     setTimeout(() => {
       $('#candle-status').textContent = 'happy birthday';
       $('#candle-status').style.fontStyle = 'italic';
-    }, 500 + stepMs * count + 200);
+    }, startDelay + totalMs + 120);
 
     setTimeout(() => {
       revealSite();
-    }, 500 + stepMs * count + 1400);
+    }, startDelay + totalMs + 600);
   }
 
   // -------- 4. REVEAL site ---------------------------------------------------
@@ -107,6 +111,9 @@
     window.scrollTo({ top: 0, behavior: 'auto' });
     setupScrollBubbles();
     setupPolaroidModal();
+
+    // soft music-box loop, gated on the password-submit gesture
+    setTimeout(() => { startAmbientAudio && startAmbientAudio('musicbox'); }, 600);
   }
 
   // -------- 5. RENDER collage -----------------------------------------------
@@ -640,6 +647,11 @@
     $$('#audio-menu button').forEach(b => {
       b.addEventListener('click', () => setMode(b.dataset.mode));
     });
+
+    startAmbientAudio = (mode = 'musicbox') => {
+      if (current) return;
+      try { setMode(mode); } catch (e) {}
+    };
   }
 
   // -------- INIT -------------------------------------------------------------
@@ -650,6 +662,14 @@
     setupPencilTrail();
     setupAudio();
     setupPasswordCard();
+
+    // Dev shortcut: ?skip or ?dev jumps past the entry screen.
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('skip') || params.has('dev')) {
+      $('#entry').style.display = 'none';
+      revealSite();
+      return;
+    }
 
     // typewriter intro
     const intro = $('#typewriter-target');
