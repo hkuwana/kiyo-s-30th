@@ -6,6 +6,8 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
+  let _setAudioMode = null; // wired up by setupAudio()
+
   // -------- 1. TYPEWRITER intro ----------------------------------------------
   function typewriter(el, text, speed = 95) {
     return new Promise((resolve) => {
@@ -74,25 +76,27 @@
 
     const candles = $$('.candle', stage);
     const count = candles.length;
-    const totalMs = 4000;
+    // Quick wind-sweep: candles ignite left-to-right in ~900ms total.
+    const totalMs = 900;
     const stepMs = totalMs / count;
+    const startDelay = 220;
     const counter = $('#candle-count');
 
     candles.forEach((c, i) => {
       setTimeout(() => {
         c.classList.add('lit');
         counter.textContent = String(i + 1).padStart(2, '0');
-      }, 500 + stepMs * i);
+      }, startDelay + stepMs * i);
     });
 
     setTimeout(() => {
       $('#candle-status').textContent = 'happy birthday';
       $('#candle-status').style.fontStyle = 'italic';
-    }, 500 + stepMs * count + 200);
+    }, startDelay + totalMs + 120);
 
     setTimeout(() => {
       revealSite();
-    }, 500 + stepMs * count + 1400);
+    }, startDelay + totalMs + 600);
   }
 
   // -------- 4. REVEAL site ---------------------------------------------------
@@ -107,6 +111,9 @@
     window.scrollTo({ top: 0, behavior: 'auto' });
     setupScrollBubbles();
     setupPolaroidModal();
+
+    // auto-start lullaby after the reveal animation settles (password click = user gesture)
+    setTimeout(() => { if (_setAudioMode) _setAudioMode('lullaby'); }, 1400);
   }
 
   // -------- 5. RENDER collage -----------------------------------------------
@@ -295,7 +302,7 @@
     pol.innerHTML = `
       <div class="photo" style="background-image:url('${img(D.endingImage || 'ending-signed')}');aspect-ratio:4/5"></div>
       <div class="caption">${D.endingCaption || 'Thirty. And just getting good.'}</div>
-      <div class="date-stamp">MAY 20 · 2026</div>
+      <div class="date-stamp">${D.endingDate || 'MAY 20 · 2026'}</div>
       <div class="deco-layer">
         ${decoTape('tl')}
         ${decoTape('tr')}
@@ -324,8 +331,10 @@
     function open(ci, pi) {
       const p = D.chapters[ci].polaroids[pi];
       if (!p || !p.message) return;
+      card.classList.toggle('has-photo', !!p.image);
       card.innerHTML = `
         <button class="modal-close" aria-label="close">✕</button>
+        ${p.image ? `<div class="modal-photo" style="background-image:url('${p.image}')"></div>` : ''}
         <div class="from">FROM</div>
         <div class="name">${p.friend}</div>
         <div class="body-text">${p.message.map(t => `<p>${t}</p>`).join('')}</div>
@@ -510,6 +519,7 @@
 
     function playTone(freq, when, {
       duration = 1.8,
+      attack = 0.018,
       gain = 0.035,
       type = 'sine',
       overtone = 2,
@@ -519,7 +529,7 @@
 
       const amp = track(ctx.createGain());
       amp.gain.setValueAtTime(0.0001, when);
-      amp.gain.exponentialRampToValueAtTime(gain, when + 0.018);
+      amp.gain.exponentialRampToValueAtTime(gain, when + attack);
       amp.gain.exponentialRampToValueAtTime(0.0001, when + duration);
       amp.connect(active.output);
 
@@ -530,116 +540,121 @@
       fundamental.start(when);
       fundamental.stop(when + duration + 0.05);
 
-      const shimmer = track(ctx.createOscillator());
-      const shimmerGain = track(ctx.createGain());
-      shimmer.type = 'sine';
-      shimmer.frequency.setValueAtTime(freq * overtone, when);
-      shimmerGain.gain.setValueAtTime(gain * overtoneGain, when);
-      shimmerGain.gain.exponentialRampToValueAtTime(0.0001, when + duration * 0.72);
-      shimmer.connect(shimmerGain);
-      shimmerGain.connect(active.output);
-      shimmer.start(when);
-      shimmer.stop(when + duration + 0.05);
+      if (overtoneGain > 0) {
+        const shimmer = track(ctx.createOscillator());
+        const shimmerGain = track(ctx.createGain());
+        shimmer.type = 'sine';
+        shimmer.frequency.setValueAtTime(freq * overtone, when);
+        shimmerGain.gain.setValueAtTime(gain * overtoneGain, when);
+        shimmerGain.gain.exponentialRampToValueAtTime(0.0001, when + duration * 0.72);
+        shimmer.connect(shimmerGain);
+        shimmerGain.connect(active.output);
+        shimmer.start(when);
+        shimmer.stop(when + duration + 0.05);
+      }
     }
 
-    function scheduleMusicBox() {
-      const start = ctx.currentTime + 0.04;
-      const notes = [659.25, 783.99, 880, 1046.5, 987.77, 783.99, 659.25, 587.33, 659.25, 783.99, 880, 783.99];
-      notes.forEach((freq, i) => {
-        playTone(freq, start + i * 0.42, {
-          duration: 1.7,
-          gain: i % 4 === 0 ? 0.034 : 0.028,
-          type: 'sine',
-          overtone: 3,
-          overtoneGain: 0.32,
-        });
-      });
-    }
-
-    function playMusicBox() {
-      beginPatch(0.62);
-      scheduleMusicBox();
-      active.timers.push(setInterval(scheduleMusicBox, 6200));
-    }
+    // Lullaby — ambient pad: slow attack, long sustain, overlapping chords
+    const LULLABY_POOL = [
+      [261.63, 329.63, 392, 493.88],   // C maj7
+      [220, 261.63, 329.63, 440],       // A min7
+      [174.61, 261.63, 349.23, 440],    // F maj7
+      [196, 293.66, 392, 523.25],       // G sus4
+      [246.94, 311.13, 369.99, 493.88], // B min7
+      [293.66, 369.99, 440, 587.33],    // D maj7
+      [164.81, 220, 293.66, 392],       // E min7
+      [233.08, 293.66, 349.23, 466.16], // B♭ maj7
+    ];
+    const SPARKLE_SCALE = [523.25, 659.25, 783.99, 880, 1046.5];
 
     function scheduleLullaby() {
-      const start = ctx.currentTime + 0.04;
-      const chords = [
-        [261.63, 329.63, 392, 493.88],
-        [220, 261.63, 329.63, 440],
-        [174.61, 261.63, 349.23, 440],
-        [196, 293.66, 392, 523.25],
-      ];
-      chords.forEach((chord, chordIdx) => {
-        chord.forEach((freq, noteIdx) => {
-          playTone(freq, start + chordIdx * 2.7 + noteIdx * 0.16, {
-            duration: 3.2,
-            gain: noteIdx === 0 ? 0.018 : 0.013,
+      const start = ctx.currentTime + 0.1;
+      const chords = [...LULLABY_POOL].sort(() => Math.random() - 0.5).slice(0, 4);
+      chords.forEach((chord, ci) => {
+        const offset = ci * 4.5 + (Math.random() - 0.5) * 0.4;
+        chord.forEach((freq, ni) => {
+          // Pad voice: slow fade-in so notes swell rather than pluck
+          playTone(freq, start + offset + ni * 0.25, {
+            duration: 6.5,
+            attack: 0.55,
+            gain: ni === 0 ? 0.019 : 0.012,
             type: 'triangle',
             overtone: 2,
-            overtoneGain: 0.12,
+            overtoneGain: 0.08,
           });
+          // Warm bass octave on root note
+          if (ni === 0) {
+            playTone(freq * 0.5, start + offset, {
+              duration: 7.2,
+              attack: 0.9,
+              gain: 0.007,
+              type: 'sine',
+              overtoneGain: 0,
+            });
+          }
         });
       });
+      // Occasional soft high note drifting through
+      if (Math.random() > 0.45) {
+        const freq = SPARKLE_SCALE[Math.floor(Math.random() * SPARKLE_SCALE.length)];
+        playTone(freq, start + Math.random() * 16, {
+          duration: 3.5,
+          attack: 0.22,
+          gain: 0.007,
+          type: 'sine',
+          overtone: 2,
+          overtoneGain: 0.14,
+        });
+      }
     }
 
     function playLullaby() {
-      beginPatch(0.5);
+      beginPatch(0.48);
       scheduleLullaby();
-      active.timers.push(setInterval(scheduleLullaby, 11600));
+      // 18s cycle (4 chords × 4.5s) so next batch overlaps cleanly with previous
+      active.timers.push(setInterval(scheduleLullaby, 18200));
     }
 
+    // Glass chimes — quick strike, long resonant ring, inharmonic shimmer
     function scheduleChimes() {
-      const start = ctx.currentTime + 0.04;
-      const scale = [523.25, 587.33, 659.25, 783.99, 880, 1046.5, 1174.66];
-      for (let i = 0; i < 6; i++) {
+      const start = ctx.currentTime + 0.1;
+      const scale = [523.25, 587.33, 659.25, 783.99, 880, 1046.5, 1174.66, 1318.51];
+      const count = 7 + Math.floor(Math.random() * 4);
+      for (let i = 0; i < count; i++) {
         const freq = scale[Math.floor(Math.random() * scale.length)];
-        playTone(freq, start + i * 1.25 + Math.random() * 0.35, {
-          duration: 2.6,
-          gain: 0.018,
+        playTone(freq, start + Math.random() * 14.5, {
+          duration: 5.5,
+          attack: 0.008,
+          gain: 0.014 + Math.random() * 0.006,
           type: 'sine',
-          overtone: 2.5,
-          overtoneGain: 0.2,
+          overtone: 2.756,  // inharmonic ratio → glassy metallic ring
+          overtoneGain: 0.16,
         });
       }
     }
 
     function playChimes() {
-      beginPatch(0.52);
+      beginPatch(0.5);
       scheduleChimes();
-      active.timers.push(setInterval(scheduleChimes, 8300));
+      active.timers.push(setInterval(scheduleChimes, 16000));
     }
 
     function setMode(mode) {
       if (mode === current) {
-        // toggle off
-        stopAll(); current = null; refreshUI(); return;
+        stopAll(); current = null;
+      } else {
+        ensureCtx();
+        current = mode;
+        if (mode === 'lullaby') playLullaby();
       }
-      ensureCtx();
-      current = mode;
-      if (mode === 'musicbox') playMusicBox();
-      else if (mode === 'lullaby') playLullaby();
-      else if (mode === 'chimes') playChimes();
-      refreshUI();
-    }
-    function refreshUI() {
-      $$('#audio-menu button').forEach(b => {
-        b.classList.toggle('active', b.dataset.mode === current);
-      });
       $('#audio-btn').classList.toggle('active', !!current);
     }
 
     $('#audio-btn').addEventListener('click', () => {
-      $('#audio-menu').classList.toggle('open');
+      setMode(current ? current : 'lullaby');
     });
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('#audio-btn') && !e.target.closest('#audio-menu')) {
-        $('#audio-menu').classList.remove('open');
-      }
-    });
-    $$('#audio-menu button').forEach(b => {
-      b.addEventListener('click', () => setMode(b.dataset.mode));
-    });
+
+    _setAudioMode = setMode;
   }
 
   // -------- INIT -------------------------------------------------------------
@@ -650,6 +665,22 @@
     setupPencilTrail();
     setupAudio();
     setupPasswordCard();
+
+    // Dev shortcut: ?skip or ?dev jumps past the entry screen.
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('skip') || params.has('dev')) {
+      $('#entry').style.display = 'none';
+      revealSite();
+      // Dev: render all bubbles in a panel at the bottom of the page
+      const panel = document.createElement('div');
+      panel.style.cssText = 'position:relative;z-index:200;background:oklch(97% 0.012 73);border-top:2px dashed var(--terracotta);padding:2rem 2rem 3rem;margin-top:4rem;';
+      panel.innerHTML = '<div style="font-family:var(--font-hand);font-size:1.1rem;color:var(--terracotta);margin-bottom:1.2rem;">💬 dev: all bubbles</div>'
+        + D.bubbles.map(b =>
+            `<div style="display:inline-block;margin:0.4rem;padding:0.55rem 1rem;background:white;border-radius:999px;box-shadow:0 2px 8px -2px rgba(0,0,0,0.12);font-family:var(--font-hand);font-size:1rem;">${b.text}<span style="opacity:0.5;font-size:0.85em;margin-left:0.5em;">— ${b.who}</span></div>`
+          ).join('');
+      document.querySelector('#site-wrap').appendChild(panel);
+      return;
+    }
 
     // typewriter intro
     const intro = $('#typewriter-target');

@@ -31,8 +31,9 @@ window.BIRTHDAY_DATA = {
   // ----- Ending polaroid photo (rendered separately from chapters) -----
   // Suggested: a recent photo of the three of you (Hiro, Arisa, Kiyo).
   // Replace this filename with whichever optimized photo you want as the final image.
-  endingImage: 'src/photos/optimized/img-8927.webp',
-  endingCaption: 'Thirty. And just getting good.',
+  endingImage: 'src/photos/optimized/patagonia-2024.webp',
+  endingCaption: 'Gotta finish dinner before midnight.',
+  endingDate: 'DEC 31 · 2022',
 
   // ===========================================================================
   // CHAPTERS
@@ -44,27 +45,41 @@ window.BIRTHDAY_DATA = {
       eyebrow: 'Chapter one · 第一章',
       title: 'Tokyo',
       yearRange: '1996-2001',
-      blurb: 'The first five years. A boy in a Setagaya apartment with two parents who took a thousand photos and meant every one of them.',
+      blurb: 'A boy in Yoyogi Uehara with two parents who took thousands of photos of him — and, soon afterward, of his brother and sisters.',
       alt: false,
       polaroids: [
         {
-          image: 'src/photos/optimized/1996-febtonov-0100-a.webp',
+          image: 'src/photos/optimized/1991-nov-hawaii-pre-yumi-0013-a.webp',
           size: 'size-md', rot: -3,
-          caption: 'Day one. 4:17 a.m.',
-          date: 'MAY · 1996',
-          friend: 'お母さん',
+          caption: '清正の由来.',
+          date: 'NOV · 1991',
+          friend: 'パパ',
           message: [
-            '[母さんからのメッセージをここに]'
+            '写真のばばは清正が生まれる前に亡くなったけれど、彼女の清子の「清」がいつも清正と一緒。',
+            '正行と正子も同じ。'
           ],
-          signoff: '母より',
+          signoff: 'パパ',
           deco: { tape: 'tl' }
+        },
+        {
+          image: 'src/photos/optimized/1996-febtonov-0100-a.webp',
+          size: 'size-md', rot: -2,
+          caption: '生まれた日 · 5:36 pm.',
+          date: 'MAY · 1996',
+          friend: 'ママ',
+          message: [
+            '清ちゃん、この世界にようこそ🤩',
+            '産まれて来てくれて嬉しいよ☺️'
+          ],
+          signoff: 'ママから · 5/20/1996 · 5:36 pm',
+          deco: { tape: 'tr' }
         },
         {
           image: 'src/photos/optimized/1996-fall-96-97-tokyo-0067-a.webp',
           size: 'size-lg', rot: 2,
           caption: 'Sakura under the Den-en-toshi line.',
           date: 'APR · 1998',
-          deco: { scribbleHeart: 'tr', arrowNote: { to: 'br', text: 'fell into the koi pond 30 seconds after' } }
+          deco: { scribbleHeart: 'tr' }
         },
         {
           image: 'src/photos/optimized/1997-fall-tokyo-0020-a.webp',
@@ -92,20 +107,9 @@ window.BIRTHDAY_DATA = {
           deco: { scribbleStar: 'tl' }
         },
         {
-          image: 'src/photos/optimized/2000-spring-tokyo-alyssa-home-0069-a.webp',
-          size: 'size-wide', rot: 1,
-          caption: 'Rainy walk home from yochien.',
-          date: '初夏 · 2001',
-          friend: 'Hiro · ヒロ',
-          message: [
-            '[ヒロからのメッセージをここに]'
-          ],
-          signoff: 'ヒロ'
-        },
-        {
           image: 'src/photos/optimized/2001-may-kuwana-0024-a.webp',
-          size: 'size-tall', rot: -3,
-          caption: 'Narita, the day we flew to JFK.',
+          size: 'size-lg', rot: -1,
+          caption: '4 generations in 1 photo!',
           date: 'AUG · 2001',
           deco: { sharpieNote: { corner: 'tl', text: 'you packed 4 books. no toys.' } }
         }
@@ -180,6 +184,19 @@ window.BIRTHDAY_DATA = {
           signoff: 'Sam'
         },
         {
+          image: 'src/photos/optimized/kiyo30-eiki.webp',
+          size: 'size-md', rot: -2,
+          caption: 'Maui. Eiki Ojisan and family.',
+          date: 'SUMMER · 2005',
+          friend: 'Eiki Ojisan · えいきおじさん',
+          message: [
+            'Kiyo, Happy 30th Birthday!! You have accomplished so much in 30 years. Congrats on all of your accomplishments. Much much more to come in the next 30 years.',
+            'You are well loved by your family and friends. We look forward to all that you do. Enjoy the adventures of life.'
+          ],
+          signoff: 'Eiki Ojisan and Family',
+          deco: { tape: 'tr' }
+        },
+        {
           image: 'src/photos/optimized/dsc05226.webp',
           size: 'size-md', rot: 1,
           caption: 'GHS freshman year. Briefly.',
@@ -214,17 +231,17 @@ window.BIRTHDAY_DATA = {
           signoff: 'J.'
         },
         {
-          image: 'src/photos/optimized/dsc-0208.webp',
+          image: 'src/photos/optimized/kiyo-hitdeki-brown.webp',
           size: 'size-wide', rot: 1,
-          caption: "Harkness table, Mr. Lamb's English 320.",
-          date: 'WINTER · 2014',
-          deco: { sharpieNote: { corner: 'tl', text: 'you spoke last. always last. always good.' } }
+          caption: 'Kiyo introduces Brown to Hit-deki.',
+          date: 'SPRING · 2019',
+          deco: { tape: 'tr' }
         },
         {
           image: 'src/photos/optimized/dsc-2821.webp',
           size: 'size-sm', rot: -3,
-          caption: 'Lamont Hall library.',
-          date: 'SPRING · 2015',
+          caption: 'Made it to Cum Laude!',
+          date: 'MAY · 2015',
           friend: 'Mr. Lamb',
           message: [
             "[Mr. Lamb's message here]"
@@ -233,14 +250,14 @@ window.BIRTHDAY_DATA = {
         },
         {
           image: 'src/photos/optimized/img-0680.webp',
-          size: 'size-lg', rot: -3,
-          caption: 'Move-in day, Keeney Quad.',
+          size: 'size-md', rot: -3,
+          caption: 'One week in Thailand.',
           date: 'SEPT · 2016',
-          friend: 'Priya',
+          friend: 'ママ',
           message: [
-            "[Priya's message here]"
+            'タイ🇹🇭での家族旅行✈️Kum Banにお世話になってゆっくりしたね'
           ],
-          signoff: 'Priya'
+          signoff: 'ママ'
         },
         {
           image: 'src/photos/optimized/img-1018.webp',
@@ -251,7 +268,7 @@ window.BIRTHDAY_DATA = {
         },
         {
           image: 'src/photos/optimized/img-1178.webp',
-          size: 'size-lg', rot: -2,
+          size: 'size-md', rot: 1,
           caption: 'Back in Tokyo with the Brown gang.',
           date: 'JUNE · 2018',
           friend: 'James',
@@ -309,11 +326,16 @@ window.BIRTHDAY_DATA = {
           signoff: '青木'
         },
         {
-          image: 'src/photos/optimized/img-5064.webp',
+          image: 'src/photos/optimized/upenn-masters-2022.webp',
           size: 'size-md', rot: -2,
-          caption: 'First class. First day.',
-          date: 'SEPT · 2021',
-          deco: { postit: { corner: 'br', text: 'you forgot 3 names. they forgave you.' } }
+          caption: "Penn master's. May 2022.",
+          date: 'MAY · 2022',
+          friend: 'ママ',
+          message: [
+            '[ママからのメッセージをここに]'
+          ],
+          signoff: 'ママより',
+          deco: { tape: 'tl' }
         },
         {
           image: 'src/photos/optimized/img-6630.webp',
@@ -349,15 +371,39 @@ window.BIRTHDAY_DATA = {
           signoff: 'Theo'
         },
         {
-          image: 'src/photos/optimized/img-7458.webp',
-          size: 'size-md', rot: -3,
-          caption: 'Lauren.',
-          date: 'WINTER · 2026',
-          friend: 'Lauren',
+          image: 'src/photos/optimized/img-3012-rie.webp',
+          size: 'size-md', rot: 3,
+          caption: '名探偵コナン · Halloween.',
+          date: '2024',
+          friend: 'Rie Lavender · リエ',
           message: [
-            "[Lauren's message here]"
+            'Happy Dashi-ing Thirty! ダシが効いてる三十路！',
+            'My favorite history-buff-turned-high-school-hero has officially entered his "Ahjussi" era — meaning the dad jokes are now federally mandated and the K-pop lightstick stays permanently on his desk. Whether he\'s drop-kicking Asian historical myths at school or practicing his favorite idol\'s choreography in private, Kiyo does it with the kindest heart and very original wit.',
+            'Cheers to 3 decades of being a gentle soul with a legendary sense of humor. Don\'t let the 3-0 get you down — in "history years," you\'re basically a newborn!'
           ],
-          signoff: 'L ♡'
+          signoff: 'Love you! Rie',
+          deco: { tape: 'tl' }
+        },
+        {
+          image: 'src/photos/optimized/img-6954-rie.webp',
+          size: 'size-sm', rot: -2,
+          caption: 'Yankees game.',
+          date: '2024',
+          deco: { scribbleHeart: 'tr' }
+        },
+        {
+          image: 'src/photos/optimized/img-8732-lauren.webp',
+          size: 'size-md', rot: -1,
+          caption: 'Opening Day +2. Dodgers vs Nationals.',
+          date: 'APR · 2025',
+          friend: 'Lolo',
+          message: [
+            'Happy 30th Birthday to the sweetest, cutest, and most loving bb ever!! I am grateful to be able to celebrate both the end and the beginning of a new decade for you — with the people who love you most.',
+            'Kiyo — you care for others in very special, and perhaps unconventionally majime ways that makes them feel seen, balihai, and cherished. I love feeling your kindness in your attention to the smallest detail, such as spending hours writing comments for your kids so that they learn from their mistakes; texting me that my flight had landed even before the time on my phone adjusts to the new time difference, as you were closely following my flight path; taking the time to send a thank you card to my emmo; despite your intense feelings re: cilantro, you suggesting Vietnamese for our second date because I mentioned that I wanted pho in passing; handwriting birthday/wedding cards and picking out the most thoughtful gifts for others; starting all our mornings with a rajio taiso routine; and always letting me have the last bite at donsak.',
+            'Wishing you only the brightest and most balihai days ahead with all the luck I\'ve accumulated throughout this lifetime. But if I can be a bit more selfish, hoping for many more mooooovie nights together and many more tomorrows to come — 淸ちゃん 大大大大大大大大大大好き (more than choco-minto)!'
+          ],
+          signoff: 'love, lolo',
+          deco: { postit: { corner: 'tr', text: '응ㅇㅇㅇㅇㅇㅇㅇㅇ좋은 아침!!' } }
         }
       ]
     }
@@ -367,17 +413,21 @@ window.BIRTHDAY_DATA = {
   // BUBBLES · quotes that float up while scrolling
   // ===========================================================================
   bubbles: [
-    { text: 'Always the first one to text.', who: 'Hiro' },
-    { text: 'おめでとう、ねえ。母さん、本当にうれしい。', who: '母' },
-    { text: 'You\'re the reason I went into teaching.', who: 'Sam' },
-    { text: 'He has my coffee order memorized.', who: 'a friend' },
-    { text: 'The kindest, most stubborn person I know.', who: 'Lauren' },
-    { text: 'Came when it mattered. Said nothing. Sat next to me.', who: 'James' },
-    { text: 'Mr. Kuwana said my essay was good and I cried in the bathroom.', who: 'student, anon' },
-    { text: 'Thirty years of being too good for this world.', who: 'Sam' },
-    { text: 'Your laugh, in any room, makes the room better.', who: 'Lauren' },
-    { text: 'お兄ちゃん、おめでとう。', who: 'Arisa · 亜里沙' },
-    { text: 'I have never won an argument with him. He just keeps being nice.', who: 'Marcus' }
+    { text: 'Filler filler filler!', who: 'ママ' },
+    { text: 'Filler filler filler!', who: 'パパ' },
+    { text: 'Filler filler filler!', who: 'Rie Obasan' },
+    { text: 'Filler filler filler!', who: 'Yuhka / Chako' },
+    { text: 'Filler filler filler!', who: 'Eiki / Jennifer' },
+    { text: 'Filler filler filler!', who: 'Conrad' },
+    { text: 'Filler filler filler!', who: 'Nico' },
+    { text: 'ahhhhh love you dogmaus !!', who: 'Lolo' },
+    { text: 'Filler filler filler!', who: 'Nathan' },
+    { text: 'Awww domes domes.', who: 'Francis' },
+    { text: 'Filler filler filler!', who: 'Lloyd' },
+    { text: 'Filler filler filler!', who: 'Connie' },
+    { text: 'Filler filler filler!', who: 'Belinda' },
+    { text: 'Garrison bonus activated.', who: 'Uncle Hairo' },
+    { text: 'Filler filler filler!', who: 'Auntie Alyssa' },
   ],
 
   // ===========================================================================
@@ -386,11 +436,14 @@ window.BIRTHDAY_DATA = {
   guestbook: [
     'ママ',
     'パパ',
+    'Tokyo Jiji and Baba (in spirit)',
+    'California Jiji and Baba (in spirit)',
+    'Rie Obasan',
     'Yuhka / Chako',
     'Eiki / Jennifer',
     'Conrad',
     'Nico',
-    'Lauren',
+    'Lolo',
     'Nathan',
     'Francis',
     'Lloyd',
@@ -398,8 +451,6 @@ window.BIRTHDAY_DATA = {
     'Belinda',
     'Uncle Hairo',
     'Auntie Alyssa',
-    'KKR Team',
-    'Jiji and Baba in spirit'
   ],
 
   // ===========================================================================
