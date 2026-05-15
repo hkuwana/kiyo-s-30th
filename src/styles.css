@@ -361,17 +361,29 @@ input, textarea { cursor: text; }
   box-shadow: 0 4px 16px -4px var(--paper-shadow);
 }
 .control-btn {
-  width: 36px; height: 36px;
+  height: 36px;
+  padding: 0 10px;
   border-radius: 999px;
-  display: grid; place-items: center;
+  display: flex; align-items: center; gap: 5px;
   background: transparent;
   border: none;
   color: var(--ink);
   opacity: 0.75;
-  transition: opacity 200ms, background 200ms;
+  transition: opacity 200ms, background 200ms, color 200ms, box-shadow 200ms;
+  cursor: pointer;
 }
 .control-btn:hover { opacity: 1; background: oklch(40% 0.123 38 / 0.06); }
-.control-btn.active { opacity: 1; background: var(--ink); color: var(--cream); }
+.control-btn.active {
+  opacity: 1;
+  background: var(--terracotta);
+  color: #fff;
+  box-shadow: 0 0 0 3px oklch(55% 0.18 38 / 0.25);
+  animation: audio-pulse 2.4s ease-in-out infinite;
+}
+@keyframes audio-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px oklch(55% 0.18 38 / 0.25); }
+  50%       { box-shadow: 0 0 0 6px oklch(55% 0.18 38 / 0.08); }
+}
 
 .audio-menu {
   position: absolute;

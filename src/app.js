@@ -6,6 +6,8 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
+  let _setAudioMode = null; // wired up by setupAudio()
+
   // -------- 1. TYPEWRITER intro ----------------------------------------------
   function typewriter(el, text, speed = 95) {
     return new Promise((resolve) => {
@@ -107,6 +109,9 @@
     window.scrollTo({ top: 0, behavior: 'auto' });
     setupScrollBubbles();
     setupPolaroidModal();
+
+    // auto-start lullaby after the reveal animation settles (password click = user gesture)
+    setTimeout(() => { if (_setAudioMode) _setAudioMode('lullaby'); }, 1400);
   }
 
   // -------- 5. RENDER collage -----------------------------------------------
@@ -562,29 +567,49 @@
       active.timers.push(setInterval(scheduleMusicBox, 6200));
     }
 
+    const LULLABY_POOL = [
+      [261.63, 329.63, 392, 493.88],   // C maj7
+      [220, 261.63, 329.63, 440],       // A min7
+      [174.61, 261.63, 349.23, 440],    // F maj7
+      [196, 293.66, 392, 523.25],       // G sus4
+      [246.94, 311.13, 369.99, 493.88], // B min7
+      [293.66, 369.99, 440, 587.33],    // D maj7
+      [164.81, 220, 293.66, 392],       // E min7
+      [233.08, 293.66, 349.23, 466.16], // B♭ maj7
+    ];
+    const SPARKLE_SCALE = [523.25, 659.25, 783.99, 880, 1046.5];
+
     function scheduleLullaby() {
       const start = ctx.currentTime + 0.04;
-      const chords = [
-        [261.63, 329.63, 392, 493.88],
-        [220, 261.63, 329.63, 440],
-        [174.61, 261.63, 349.23, 440],
-        [196, 293.66, 392, 523.25],
-      ];
+      // shuffle and pick 4 chords so the sequence never repeats exactly
+      const chords = [...LULLABY_POOL].sort(() => Math.random() - 0.5).slice(0, 4);
       chords.forEach((chord, chordIdx) => {
+        const jitter = (Math.random() - 0.5) * 0.28;
         chord.forEach((freq, noteIdx) => {
-          playTone(freq, start + chordIdx * 2.7 + noteIdx * 0.16, {
-            duration: 3.2,
-            gain: noteIdx === 0 ? 0.018 : 0.013,
+          playTone(freq, start + chordIdx * 2.7 + noteIdx * 0.16 + jitter, {
+            duration: 3.1 + Math.random() * 0.5,
+            gain: noteIdx === 0 ? 0.018 : 0.012,
             type: 'triangle',
             overtone: 2,
             overtoneGain: 0.12,
           });
         });
       });
+      // occasional soft sparkle note (60% chance)
+      if (Math.random() > 0.4) {
+        const freq = SPARKLE_SCALE[Math.floor(Math.random() * SPARKLE_SCALE.length)];
+        playTone(freq, start + Math.random() * 9, {
+          duration: 2.2,
+          gain: 0.007,
+          type: 'sine',
+          overtone: 2,
+          overtoneGain: 0.18,
+        });
+      }
     }
 
     function playLullaby() {
-      beginPatch(0.5);
+      beginPatch(0.45);
       scheduleLullaby();
       active.timers.push(setInterval(scheduleLullaby, 11600));
     }
@@ -626,10 +651,14 @@
       $$('#audio-menu button').forEach(b => {
         b.classList.toggle('active', b.dataset.mode === current);
       });
-      $('#audio-btn').classList.toggle('active', !!current);
+      const btn = $('#audio-btn');
+      const label = $('#audio-label');
+      btn.classList.toggle('active', !!current);
+      if (label) label.textContent = current ? 'mute' : '';
     }
 
     $('#audio-btn').addEventListener('click', () => {
+      if (current) { setMode(current); return; } // click while playing = mute
       $('#audio-menu').classList.toggle('open');
     });
     document.addEventListener('click', (e) => {
@@ -638,8 +667,10 @@
       }
     });
     $$('#audio-menu button').forEach(b => {
-      b.addEventListener('click', () => setMode(b.dataset.mode));
+      b.addEventListener('click', () => { setMode(b.dataset.mode); });
     });
+
+    _setAudioMode = setMode;
   }
 
   // -------- INIT -------------------------------------------------------------
