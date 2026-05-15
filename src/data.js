@@ -241,11 +241,11 @@ window.BIRTHDAY_DATA = {
           signoff: 'J.'
         },
         {
-          image: 'src/photos/optimized/dsc-0208.webp',
+          image: 'src/photos/optimized/kiyo-hitdeki-brown.jpg',
           size: 'size-wide', rot: 1,
-          caption: "Harkness table, Mr. Lamb's English 320.",
-          date: 'WINTER · 2014',
-          deco: { sharpieNote: { corner: 'tl', text: 'you spoke last. always last. always good.' } }
+          caption: 'Kiyo introduces Brown to Hit-deki.',
+          date: 'SPRING · 2019',
+          deco: { tape: 'tr' }
         },
         {
           image: 'src/photos/optimized/dsc-2821.webp',
@@ -336,11 +336,16 @@ window.BIRTHDAY_DATA = {
           signoff: '青木'
         },
         {
-          image: 'src/photos/optimized/img-5064.webp',
+          image: 'src/photos/optimized/upenn-masters-2022.jpg',
           size: 'size-md', rot: -2,
-          caption: 'First class. First day.',
-          date: 'SEPT · 2021',
-          deco: { postit: { corner: 'br', text: 'you forgot 3 names. they forgave you.' } }
+          caption: "Penn master's. May 2022.",
+          date: 'MAY · 2022',
+          friend: 'ママ',
+          message: [
+            '[ママからのメッセージをここに]'
+          ],
+          signoff: 'ママより',
+          deco: { tape: 'tl' }
         },
         {
           image: 'src/photos/optimized/img-6630.webp',
