@@ -45,7 +45,7 @@ window.BIRTHDAY_DATA = {
       eyebrow: 'Chapter one · 第一章',
       title: 'Tokyo',
       yearRange: '1996-2001',
-      blurb: 'A boy in Yoyogi Uehara with two parents who took thousands of photos of him — and, soon afterward, of his brother and sisters.',
+      blurb: 'A boy in Yoyogi Uehara with two parents who took thousands of photos of him — and, soon afterward, of his brother and sister.',
       alt: false,
       polaroids: [
         {
