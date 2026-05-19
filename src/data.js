@@ -75,9 +75,15 @@ window.BIRTHDAY_DATA = {
           deco: { tape: 'tr' }
         },
         {
+          image: 'src/photos/optimized/1996-family-newborn.webp',
+          size: 'size-md', rot: 2,
+          caption: 'Kiyo\'s first trip to Hawaii!',
+          date: 'MAY · 1996'
+        },
+        {
           image: 'src/photos/optimized/1996-fall-96-97-tokyo-0067-a.webp',
           size: 'size-lg', rot: 2,
-          caption: 'Sakura under the Den-en-toshi line.',
+          caption: '次のステップを計画している最中',
           date: 'APR · 1998',
           deco: { scribbleHeart: 'tr' }
         },
@@ -95,9 +101,20 @@ window.BIRTHDAY_DATA = {
         {
           image: 'src/photos/optimized/1998-tokyo-0120-a.webp',
           size: 'size-md', rot: 4,
-          caption: '幼稚園 · the yochien crew.',
+          caption: 'Party for Kiyo',
           date: 'SPRING · 2000',
-          deco: { postit: { corner: 'br', text: 'Hiro · Kana · Yuto · YOU' } }
+          deco: { postit: { corner: 'br', text: 'Jiji · Rie · Hiro · YOU' } }
+        },
+        {
+          image: 'src/photos/optimized/kiyo-star-pajamas.webp',
+          size: 'size-md', rot: -3,
+          caption: 'Tiger will always bounce',
+          date: 'SPRING · 2000',
+          friend: 'Belinda',
+          message: [
+            'Kiyo, you are and have always been amazing. I met you just before your 4th bday and the first thing that comes to mind after meeting your loving family was when you pooped on the carpet and just looked at me as if to say "so there."'
+          ],
+          signoff: 'Belinda'
         },
         {
           image: 'src/photos/optimized/1999-spring-tokyo-hawaii-0075-a.webp',
@@ -111,14 +128,14 @@ window.BIRTHDAY_DATA = {
           size: 'size-lg', rot: -1,
           caption: '4 generations in 1 photo!',
           date: 'AUG · 2001',
-          deco: { sharpieNote: { corner: 'tl', text: 'you packed 4 books. no toys.' } }
+          deco: { sharpieNote: { corner: 'tl', text: 'I think he didn\'t know his number scroll could go so far' } }
         },
         {
           image: 'src/photos/optimized/2002-kuwana-tokyo-nyc-transition-0143-a.webp',
           size: 'size-sm', rot: 3,
           caption: 'Hokkaido Yuki Matsuri',
           date: 'WINTER · 2002',
-          deco: { arrowNote: { to: 'tr', text: 'lunchbox: 3 onigiri & a juicebox. RIP.' } }
+          deco: { arrowNote: { to: 'tr', text: 'Not tired after lunch?' } }
         }
       ]
     },
@@ -137,11 +154,11 @@ window.BIRTHDAY_DATA = {
           size: 'size-lg', rot: -2,
           caption: 'Kiyo was tired after lunch',
           date: 'SEPT · 2001',
-          friend: 'Dad',
+          friend: 'Uncle Hairo',
           message: [
             'キヨくんはこの頃はアメリカに引っ越すのが怖がっていたかな？大変な顔だね'
           ],
-          signoff: 'Dad'
+          signoff: 'Uncle Hairo'
         },
         {
           image: 'src/photos/optimized/2002-fall-kuwana-0051-a.webp',
@@ -156,7 +173,7 @@ window.BIRTHDAY_DATA = {
           date: 'JULY · 2006',
           friend: 'Hiro',
           message: [
-            '[Hiro\'s message here]'
+            'Just like the watercolor image'
           ],
           signoff: 'Hiro'
         },
@@ -301,7 +318,7 @@ window.BIRTHDAY_DATA = {
       eyebrow: 'Chapter four · 第四章',
       title: 'Adult.',
       yearRange: '2019-now',
-      blurb: 'A classroom of his own. A person who knows his coffee order. A life that, on most days, looks a lot like the one he hoped for at twelve.',
+      blurb: 'Off to UPenn, teacher Kuwana, and life that, on most days, looks a lot like the one he hoped for at twelve.',
       alt: true,
       polaroids: [
         {
@@ -316,34 +333,35 @@ window.BIRTHDAY_DATA = {
           size: 'size-sm', rot: 2,
           caption: 'Michael Rover\'s Wedding',
           date: 'AUG · 2020',
-          friend: 'Aoki-sensei · 青木先生',
-          message: [
-            '[青木先生からのメッセージをここに]'
-          ],
-          signoff: '青木'
         },
         {
           image: 'src/photos/optimized/upenn-masters-2022.webp',
-          size: 'size-md', rot: -2,
+          size: 'size-md', rot: -2, bgPos: 'center top',
           caption: "Penn master's. May 2022.",
           date: 'MAY · 2022',
-          friend: 'ママ',
+          friend: 'パパ',
           message: [
-            '[ママからのメッセージをここに]'
+            'さすがママの後輩'
           ],
-          signoff: 'ママより',
+          signoff: 'パパより',
           deco: { tape: 'tl' }
         },
         {
-          image: 'src/photos/optimized/img-6630.webp',
+          image: 'src/photos/optimized/gct-webster-hojung.webp',
           size: 'size-lg', rot: 1,
-          caption: 'The coffee shop on Filbert. The day.',
+          caption: 'GCT with the Webster guys (and Hojung)',
           date: 'NOV · 2022',
-          friend: 'Marcus',
+          friend: '太郎・香・一平',
           message: [
-            "[Marcus's message here]"
+            '清正先生、',
+            '30歳のお誕生日おめでとうございます。',
+            '30、60、90、120、150、...、と30年サイクルの第一歩ですね。',
+            '還暦までも、あと３０年！',
+            '150才もあり得る世の中になっていくことでしょう。',
+            '先が長いようですが、充実した、楽しい日々でありますように。',
+            '何が起ころうとも、笑い😆飛ばせる幸多き人生でありますよう💕'
           ],
-          signoff: 'M.'
+          signoff: '太郎、香、一平'
         },
         {
           image: 'src/photos/optimized/lloyd-mets-2023.webp',
@@ -383,24 +401,14 @@ window.BIRTHDAY_DATA = {
         {
           image: 'src/photos/optimized/img-6918.webp',
           size: 'size-wide', rot: -1,
-          caption: 'Room 207. His.',
-          date: 'SPRING · 2026',
-          friend: 'V.P. Ortiz',
-          message: [
-            "[V.P. Ortiz's message here]"
-          ],
-          signoff: 'V.O.'
+          caption: 'Gorilla find Kiyo-kun',
+          date: 'JUNE · 2019'
         },
         {
           image: 'src/photos/optimized/img-7076.webp',
           size: 'size-sm', rot: -4,
-          caption: 'A note from a student.',
+          caption: 'Torigin with Jiji and baba',
           date: 'FEB · 2026',
-          friend: 'Theo (age 12)',
-          message: [
-            "[Theo's note here]"
-          ],
-          signoff: 'Theo'
         },
         {
           image: 'src/photos/optimized/img-3012-rie.webp',
@@ -433,7 +441,7 @@ window.BIRTHDAY_DATA = {
         {
           image: 'src/photos/optimized/img-1252.webp',
           size: 'size-md', rot: 1,
-          caption: 'Great British weather',
+          caption: 'You’re too old for that shit now\nFrancis',
           date: 'JULY · 2024',
           deco: { tape: 'tr', postit: { corner: 'br', text: 'Man of the People Skiibo' } }
         },
@@ -442,11 +450,14 @@ window.BIRTHDAY_DATA = {
           size: 'size-wide', rot: 0,
           caption: 'Patagonia, Argentina.',
           date: '2023',
-          friend: 'Sam',
+          friend: 'ママとパパより',
           message: [
-            '[Sam\'s message here]'
+            '最愛の清ちゃん',
+            '清の名前には、叔母ちゃん達の清子・正子、叔父ちゃんの正行-三人の想いが込められている立派な名前。清く、正しく生きて行く人。その名の通りに歩んでき、本当に誇りに思っているよ。',
+            'これからも、有意義な仕事をして、楽しいことを沢山経験して、よく笑ってね。あんまり難しく考えない様に。',
+            '心から清を愛しているよ。30歳おめでとう㊗️。これからもたくさんの素晴らしい将来が待っているよ！'
           ],
-          signoff: 'Sam'
+          signoff: 'ママとパパより'
         },
         {
           image: 'src/photos/optimized/img-8732-lauren.webp',
@@ -472,7 +483,7 @@ window.BIRTHDAY_DATA = {
   bubbles: [
     { text: 'うん、それならユルス', who: 'Rie' },
     { text: 'Waiting for the next opportunity to have fun together!', who: 'Yuhka / Chako' },
-    { text: 'Filler filler filler!', who: 'Eiki / Jennifer' },
+    { text: 'KKR!', who: 'Eiki / Jennifer' },
     { text: 'ahhhhh love you dogmaus !!', who: 'Lolo' },
     { text: 'Awww domes domes.', who: 'Francis' },
     { text: 'JUAN SOTO IS A NY MET', who: 'Lloyd' },
@@ -488,8 +499,8 @@ window.BIRTHDAY_DATA = {
   // GUESTBOOK · everyone who showed up
   // ===========================================================================
   guestbook: [
-    'ママ',
-    'パパ',
+    '由美ネエ',
+    'Sir',
     'Tokyo Jiji and Baba (in spirit)',
     'California Jiji and Baba (in spirit)',
     'Rie Obasan',
@@ -506,6 +517,7 @@ window.BIRTHDAY_DATA = {
     'Uncle Hairo',
     'Auntie Alyssa',
     '松井秀喜',
+    '河野家一家',
   ],
 
   // ===========================================================================

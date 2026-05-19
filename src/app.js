@@ -208,11 +208,16 @@
     const imgEl = document.createElement('div');
     imgEl.className = 'photo';
     imgEl.style.backgroundImage = `url('${img(p.image || p.seed)}')`;
+    if (p.bgPos) imgEl.style.backgroundPosition = p.bgPos;
     wrap.appendChild(imgEl);
 
     const cap = document.createElement('div');
     cap.className = 'caption';
-    cap.textContent = p.caption || '';
+    const capText = p.caption || '';
+    capText.split('\n').forEach((line, i) => {
+      if (i > 0) cap.appendChild(document.createElement('br'));
+      cap.appendChild(document.createTextNode(line));
+    });
     wrap.appendChild(cap);
 
     if (p.date) {
@@ -674,7 +679,7 @@
       // Dev: render all bubbles in a panel at the bottom of the page
       const panel = document.createElement('div');
       panel.style.cssText = 'position:relative;z-index:200;background:oklch(97% 0.012 73);border-top:2px dashed var(--terracotta);padding:2rem 2rem 3rem;margin-top:4rem;';
-      panel.innerHTML = '<div style="font-family:var(--font-hand);font-size:1.1rem;color:var(--terracotta);margin-bottom:1.2rem;">💬 dev: all bubbles</div>'
+      panel.innerHTML = '<div style="font-family:var(--font-hand);font-size:1.1rem;color:var(--terracotta);margin-bottom:1.2rem;">💬 bubbles</div>'
         + D.bubbles.map(b =>
             `<div style="display:inline-block;margin:0.4rem;padding:0.55rem 1rem;background:white;border-radius:999px;box-shadow:0 2px 8px -2px rgba(0,0,0,0.12);font-family:var(--font-hand);font-size:1rem;">${b.text}<span style="opacity:0.5;font-size:0.85em;margin-left:0.5em;">— ${b.who}</span></div>`
           ).join('');
