@@ -128,7 +128,7 @@ window.BIRTHDAY_DATA = {
           size: 'size-lg', rot: -1,
           caption: '4 generations in 1 photo!',
           date: 'AUG · 2001',
-          deco: { sharpieNote: { corner: 'tl', text: 'I think he didn\'t know his number scroll could go so far' } }
+          deco: {}
         },
         {
           image: 'src/photos/optimized/2002-kuwana-tokyo-nyc-transition-0143-a.webp',
@@ -182,12 +182,15 @@ window.BIRTHDAY_DATA = {
           size: 'size-md', rot: -2,
           caption: 'Maui. Eiki Ojisan and family.',
           date: 'SUMMER · 2005',
-          friend: 'Eiki Ojisan · えいきおじさん',
+          friend: 'Eiki Ojisan · えいきおじさん and Jennifer',
           message: [
             'Kiyo, Happy 30th Birthday!! You have accomplished so much in 30 years. Congrats on all of your accomplishments. Much much more to come in the next 30 years.',
-            'You are well loved by your family and friends. We look forward to all that you do. Enjoy the adventures of life.'
+            'You are well loved by your family and friends. We look forward to all that you do. Enjoy the adventures of life.',
+            'Eiki Ojisan',
+            'Happy 30th Kaiyo, my favorite nephew whose name starts with a "K". You are now commencing your fourth decade. It\'s time to knuckle down and get serious about life — JUST KIDDING!',
+            'No but for real I am wishing you health, wealth, and happiness. You already have great accomplishments under your young belt. Kudos to you. I hope — no, I KNOW you will continue to have wonderful, meaningful, impactful achievements in the future. For the present have a blast on your birthday!'
           ],
-          signoff: 'Eiki Ojisan and Family',
+          signoff: 'Love, Jennifer Obasan',
           deco: { tape: 'tr' }
         },
         {
@@ -218,14 +221,15 @@ window.BIRTHDAY_DATA = {
         {
           image: 'src/photos/optimized/alyssa-kiyo-totoro.webp',
           size: 'size-md', rot: 2,
-          caption: 'Totoro To-toro.',
+          caption: 'totoro to-toro to nico',
           date: '2010',
-          friend: 'Jennifer Obasan',
+          friend: 'Nico Mera',
           message: [
-            'Happy 30th Kaiyo, my favorite nephew whose name starts with a "K". You are now commencing your fourth decade. It\'s time to knuckle down and get serious about life — JUST KIDDING!',
-            'No but for real I am wishing you health, wealth, and happiness. You already have great accomplishments under your young belt. Kudos to you. I hope — no, I KNOW you will continue to have wonderful, meaningful, impactful achievements in the future. For the present have a blast on your birthday!'
+            'Dear Kiyo, happy birthday! Congratulations on 2nd place to 30!',
+            'Wishing my kids\' second dad the best decade to come, but please start contributing to the mortgage!',
+            'Love, Nico. Julianne, Jack, and Scarlet are all wishing you a very happy birthday as well!'
           ],
-          signoff: 'Love, Jennifer Obasan',
+          signoff: 'Nico, Julianne, Jack, and Scarlet',
           deco: { tape: 'tl', sharpieNote: { corner: 'br', text: 'Long time no see!' } }
         },
         {
@@ -240,17 +244,15 @@ window.BIRTHDAY_DATA = {
           signoff: 'ヒロユキ'
         },
         {
-          image: 'src/photos/optimized/nico-mera-torigin-jiji-baba.webp',
+          image: 'src/photos/optimized/conrad-kiyo.webp',
           size: 'size-md', rot: -4,
-          caption: 'Torigin with Jiji and Baba',
-          date: 'GREENWICH',
-          friend: 'Nico Mera',
+          caption: 'He\'s play date ready',
+          friend: 'Conrad',
           message: [
-            'Dear Kiyo, happy birthday! Congratulations on 2nd place to 30!',
-            'Wishing my kids’ second dad the best decade to come, but please start contributing to the mortgage!',
-            'Love, Nico. Julianne, Jack, and Scarlet are all wishing you a very happy birthday as well!'
+            'Happy 30th birthday, Kiyo!!!!! Crazy to think that you\'ve fully cleared your 20s! Maybe I should call you Kiyo ojisan for the next 8 months while we\'re still in separate "decades" hahaha.',
+            'I\'m lucky to have gotten to grow up alongside you, and it\'s been awesome to see you grow up into Professor Kiyo! I know teaching is full of nonstop battles, but there\'s little that\'s as impactful as a good teacher, so thank you for doing such awesome work :) Hope you have a great birthday!!'
           ],
-          signoff: 'Nico, Julianne, Jack, and Scarlet',
+          signoff: 'Conrad',
           deco: { tape: 'tr' }
         },
         {
@@ -314,9 +316,9 @@ window.BIRTHDAY_DATA = {
         {
           image: 'src/photos/optimized/img-1018.webp',
           size: 'size-md', rot: 2,
-          caption: 'Tamarack — man of the people.',
+          caption: 'Tamarack — man of the people?',
           date: '2023',
-          deco: { scribbleHeart: 'br', sharpieNote: { corner: 'tl', text: 'man of the people.' } }
+          deco: { scribbleHeart: 'br', sharpieNote: { corner: 'tl', text: 'man of the people?' } }
         },
         {
           image: 'src/photos/optimized/img-1237.webp',
@@ -367,21 +369,15 @@ window.BIRTHDAY_DATA = {
           deco: { tape: 'tl' }
         },
         {
-          image: 'src/photos/optimized/conrad-kiyo.webp',
+          image: 'src/photos/optimized/nico-mera-torigin-jiji-baba.webp',
           size: 'size-md', rot: -2,
           caption: 'Growing up alongside.',
-          friend: 'Conrad',
-          message: [
-            'Happy 30th birthday, Kiyo!!!!! Crazy to think that you\'ve fully cleared your 20s! Maybe I should call you Kiyo ojisan for the next 8 months while we\'re still in separate "decades" hahaha.',
-            'I\'m lucky to have gotten to grow up alongside you, and it\'s been awesome to see you grow up into Professor Kiyo! I know teaching is full of nonstop battles, but there\'s little that\'s as impactful as a good teacher, so thank you for doing such awesome work :) Hope you have a great birthday!!'
-          ],
-          signoff: 'Conrad',
           deco: { tape: 'tl' }
         },
         {
           image: 'src/photos/optimized/gct-webster-hojung.webp',
           size: 'size-lg', rot: 1,
-          caption: 'GCT with the Webster guys (and Hojung)',
+          caption: 'Hello, Ippei! How are you today?',
           date: 'NOV · 2022',
           friend: '太郎・香・一平',
           message: [
@@ -481,7 +477,7 @@ window.BIRTHDAY_DATA = {
           size: 'size-md', rot: 1,
           caption: 'when Kiyo switched teams.',
           date: 'JULY · 2025',
-          deco: { tape: 'tr', postit: { corner: 'br', text: 'Man of the People Skiibo' } }
+          deco: { tape: 'tr', postit: { corner: 'br', text: 'Jefferson lives' } }
         },
         {
           image: 'src/photos/optimized/dsc03627.webp',
