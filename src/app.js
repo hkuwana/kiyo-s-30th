@@ -576,45 +576,56 @@
       const start = ctx.currentTime + 0.1;
       const chords = [...LULLABY_POOL].sort(() => Math.random() - 0.5).slice(0, 4);
       chords.forEach((chord, ci) => {
-        const offset = ci * 4.5 + (Math.random() - 0.5) * 0.4;
+        const offset = ci * 4.5 + (Math.random() - 0.5) * 0.3;
+        // Xylophone arpeggio: each note is a discrete mallet strike, slightly swung
         chord.forEach((freq, ni) => {
-          // Pad voice: slow fade-in so notes swell rather than pluck
-          playTone(freq, start + offset + ni * 0.25, {
-            duration: 6.5,
-            attack: 0.55,
-            gain: ni === 0 ? 0.019 : 0.012,
-            type: 'triangle',
-            overtone: 2,
-            overtoneGain: 0.08,
+          const swing = ni * 0.32 + (Math.random() - 0.5) * 0.04;
+          playTone(freq, start + offset + swing, {
+            duration: 2.4,
+            attack: 0.004,
+            gain: ni === 0 ? 0.07 : 0.052,
+            type: 'sine',
+            overtone: 3,        // xylophone-like partial (octave + fifth)
+            overtoneGain: 0.42,
           });
-          // Warm bass octave on root note
+          // Soft wooden octave-up echo for that bright mallet ring
+          playTone(freq * 2, start + offset + swing + 0.01, {
+            duration: 1.1,
+            attack: 0.003,
+            gain: 0.018,
+            type: 'sine',
+            overtone: 3,
+            overtoneGain: 0.25,
+          });
+          // Warm low octave on the root, like a marimba bass bar
           if (ni === 0) {
             playTone(freq * 0.5, start + offset, {
-              duration: 7.2,
-              attack: 0.9,
-              gain: 0.007,
+              duration: 3.2,
+              attack: 0.006,
+              gain: 0.024,
               type: 'sine',
-              overtoneGain: 0,
+              overtone: 4,
+              overtoneGain: 0.18,
             });
           }
         });
       });
-      // Occasional soft high note drifting through
-      if (Math.random() > 0.45) {
+      // Sparkle: a stray high mallet ping drifting through
+      if (Math.random() > 0.3) {
         const freq = SPARKLE_SCALE[Math.floor(Math.random() * SPARKLE_SCALE.length)];
         playTone(freq, start + Math.random() * 16, {
-          duration: 3.5,
-          attack: 0.22,
-          gain: 0.007,
+          duration: 1.8,
+          attack: 0.003,
+          gain: 0.028,
           type: 'sine',
-          overtone: 2,
-          overtoneGain: 0.14,
+          overtone: 3,
+          overtoneGain: 0.35,
         });
       }
     }
 
     function playLullaby() {
-      beginPatch(0.48);
+      beginPatch(0.72);
       scheduleLullaby();
       // 18s cycle (4 chords × 4.5s) so next batch overlaps cleanly with previous
       active.timers.push(setInterval(scheduleLullaby, 18200));
