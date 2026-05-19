@@ -217,10 +217,16 @@ window.BIRTHDAY_DATA = {
         },
         {
           image: 'src/photos/optimized/alyssa-kiyo-totoro.webp',
-          size: 'size-sm', rot: 2,
+          size: 'size-md', rot: 2,
           caption: 'Totoro To-toro.',
           date: '2010',
-          deco: { tape: 'tl' }
+          friend: 'Jennifer Obasan',
+          message: [
+            'Happy 30th Kaiyo, my favorite nephew whose name starts with a "K". You are now commencing your fourth decade. It\'s time to knuckle down and get serious about life — JUST KIDDING!',
+            'No but for real I am wishing you health, wealth, and happiness. You already have great accomplishments under your young belt. Kudos to you. I hope — no, I KNOW you will continue to have wonderful, meaningful, impactful achievements in the future. For the present have a blast on your birthday!'
+          ],
+          signoff: 'Love, Jennifer Obasan',
+          deco: { tape: 'tl', sharpieNote: { corner: 'br', text: 'Long time no see!' } }
         },
         {
           image: 'src/photos/optimized/dsc-0023.webp',
@@ -232,6 +238,20 @@ window.BIRTHDAY_DATA = {
             'サマーキャンプは楽しかったね。Lake Thompsonに入る時には気をつけて。'
           ],
           signoff: 'ヒロユキ'
+        },
+        {
+          image: 'src/photos/optimized/nico-mera-torigin-jiji-baba.webp',
+          size: 'size-md', rot: -4,
+          caption: 'Torigin with Jiji and Baba',
+          date: 'GREENWICH',
+          friend: 'Nico Mera',
+          message: [
+            'Dear Kiyo, happy birthday! Congratulations on 2nd place to 30!',
+            'Wishing my kids’ second dad the best decade to come, but please start contributing to the mortgage!',
+            'Love, Nico. Julianne, Jack, and Scarlet are all wishing you a very happy birthday as well!'
+          ],
+          signoff: 'Nico, Julianne, Jack, and Scarlet',
+          deco: { tape: 'tr' }
         },
         {
           image: 'src/photos/optimized/img-1178.webp',
@@ -347,6 +367,18 @@ window.BIRTHDAY_DATA = {
           deco: { tape: 'tl' }
         },
         {
+          image: 'src/photos/optimized/conrad-kiyo.webp',
+          size: 'size-md', rot: -2,
+          caption: 'Growing up alongside.',
+          friend: 'Conrad',
+          message: [
+            'Happy 30th birthday, Kiyo!!!!! Crazy to think that you\'ve fully cleared your 20s! Maybe I should call you Kiyo ojisan for the next 8 months while we\'re still in separate "decades" hahaha.',
+            'I\'m lucky to have gotten to grow up alongside you, and it\'s been awesome to see you grow up into Professor Kiyo! I know teaching is full of nonstop battles, but there\'s little that\'s as impactful as a good teacher, so thank you for doing such awesome work :) Hope you have a great birthday!!'
+          ],
+          signoff: 'Conrad',
+          deco: { tape: 'tl' }
+        },
+        {
           image: 'src/photos/optimized/gct-webster-hojung.webp',
           size: 'size-lg', rot: 1,
           caption: 'GCT with the Webster guys (and Hojung)',
@@ -399,16 +431,22 @@ window.BIRTHDAY_DATA = {
           deco: { tape: 'tl' }
         },
         {
+          image: 'src/photos/optimized/masayuki-ojisan-2024.webp',
+          size: 'size-md', rot: 2,
+          caption: 'おめでとう！',
+          date: 'SUMMER · 2024',
+          friend: '眞之叔父さん',
+          message: [
+            '天国から見守ってます！'
+          ],
+          signoff: '眞之',
+          deco: { tape: 'tr', scribbleHeart: 'br' }
+        },
+        {
           image: 'src/photos/optimized/img-6918.webp',
           size: 'size-wide', rot: -1,
           caption: 'Gorilla find Kiyo-kun',
           date: 'JUNE · 2019'
-        },
-        {
-          image: 'src/photos/optimized/img-7076.webp',
-          size: 'size-sm', rot: -4,
-          caption: 'Torigin with Jiji and baba',
-          date: 'FEB · 2026',
         },
         {
           image: 'src/photos/optimized/img-3012-rie.webp',
@@ -439,10 +477,10 @@ window.BIRTHDAY_DATA = {
           deco: { scribbleHeart: 'tr' }
         },
         {
-          image: 'src/photos/optimized/img-1252.webp',
+          image: 'src/photos/optimized/img-4504-switched-teams.webp',
           size: 'size-md', rot: 1,
-          caption: 'You’re too old for that shit now\nFrancis',
-          date: 'JULY · 2024',
+          caption: 'when Kiyo switched teams.',
+          date: 'JULY · 2025',
           deco: { tape: 'tr', postit: { corner: 'br', text: 'Man of the People Skiibo' } }
         },
         {
@@ -485,14 +523,16 @@ window.BIRTHDAY_DATA = {
     { text: 'Waiting for the next opportunity to have fun together!', who: 'Yuhka / Chako' },
     { text: 'KKR!', who: 'Eiki / Jennifer' },
     { text: 'ahhhhh love you dogmaus !!', who: 'Lolo' },
-    { text: 'Awww domes domes.', who: 'Francis' },
+    { text: 'No way you’re only 30, ochan. Balihai balihai, doumz doumz.', who: 'Francis' },
     { text: 'JUAN SOTO IS A NY MET', who: 'Lloyd' },
     { text: 'hi hi!', who: 'Connie' },
-    { text: 'Garrison bonus activated.', who: 'Uncle Hairo' },
+    { text: 'Waluigi attends the Big Gay Jamboree.', who: 'Uncle Hairo' },
     { text: 'bali hai, best - alyssa', who: 'Alyssa' },
     { text: 'What is your mission?', who: 'ママ' },
     { text: '君はえらいよ', who: '東京のじじ' },
     { text: 'Take it easy.', who: 'パパ' },
+    { text: '成長見守ってます！', who: '眞之叔父さん' },
+    { text: 'Congrats on 2nd place to 30!', who: 'Nico Mera' },
   ],
 
   // ===========================================================================
@@ -503,11 +543,12 @@ window.BIRTHDAY_DATA = {
     'Sir',
     'Tokyo Jiji and Baba (in spirit)',
     'California Jiji and Baba (in spirit)',
-    'Rie Obasan',
+    'Rie and Hisaaki',
     'Yuhka / Chako',
     'Eiki / Jennifer',
+    '眞之叔父さん (in spirit)',
     'Conrad',
-    'Nico',
+    'Nico Mera, Julianne, Jack, and Scarlet',
     'Lolo',
     'Nathan',
     'Francis',
