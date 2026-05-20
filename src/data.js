@@ -477,6 +477,11 @@ window.BIRTHDAY_DATA = {
           size: 'size-md', rot: 1,
           caption: 'when Kiyo switched teams.',
           date: 'JULY · 2025',
+          friend: 'Francis',
+          message: [
+            'No way you\'re only 30, ochan. Balihai balihai, doumz doumz.'
+          ],
+          signoff: 'Francis',
           deco: { tape: 'tr', postit: { corner: 'br', text: 'Jefferson lives' } }
         },
         {
