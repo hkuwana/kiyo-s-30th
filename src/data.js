@@ -369,12 +369,6 @@ window.BIRTHDAY_DATA = {
           deco: { tape: 'tl' }
         },
         {
-          image: 'src/photos/optimized/nico-mera-torigin-jiji-baba.webp',
-          size: 'size-md', rot: -2,
-          caption: 'Growing up alongside.',
-          deco: { tape: 'tl' }
-        },
-        {
           image: 'src/photos/optimized/gct-webster-hojung.webp',
           size: 'size-lg', rot: 1,
           caption: 'Hello, Ippei! How are you today?',
